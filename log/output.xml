@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.5 on win32)" generated="2025-09-14T17:35:57.118647" rpa="false" schemaversion="5">
+<suite id="s1" name="functionSearch" source="D:\Automation\Robot Framework\DemoRobotFramework\Tests\orangeHRM\functionSearch.robot">
+<test id="s1-t1" name="TC3:Login failed with invalid account" line="33">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-09-14T17:35:57.544351" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<arg>https://opensource-demo.orangehrmlive.com/</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-09-14T17:35:57.543350" elapsed="10.211964"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-09-14T17:36:07.755314" elapsed="0.032529"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//*[@name="username"]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-14T17:36:07.789168" elapsed="0.481343"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-14T17:36:08.271985" level="INFO">Typing text 'test' into text field 'xpath=//*[@name="username"]'.</msg>
+<arg>xpath=//*[@name="username"]</arg>
+<arg>test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-14T17:36:08.271985" elapsed="0.148287"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-14T17:36:08.420782" level="INFO">Clicking element 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-14T17:36:08.420272" elapsed="0.082926"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-14T17:36:08.504271" elapsed="0.073737"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-09-14T17:36:08.579098" level="INFO">Verifying element 'xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]' contains exact text 'Requireded'.</msg>
+<msg time="2025-09-14T17:36:08.766128" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-09-14T17:36:08.766128" level="FAIL">The text of element 'xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]' should have been 'Requireded' but it was 'Required'.</msg>
+<arg>xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]</arg>
+<arg>Requireded</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="FAIL" start="2025-09-14T17:36:08.579098" elapsed="0.191799">The text of element 'xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]' should have been 'Requireded' but it was 'Required'.</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-09-14T17:36:08.770897" elapsed="0.000000"/>
+</kw>
+<tag>Functional</tag>
+<status status="FAIL" start="2025-09-14T17:35:57.541102" elapsed="11.231211">The text of element 'xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]' should have been 'Requireded' but it was 'Required'.</status>
+</test>
+<status status="FAIL" start="2025-09-14T17:35:57.160508" elapsed="11.611805"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Functional</stat>
+</tag>
+<suite>
+<stat name="functionSearch" id="s1" pass="0" fail="1" skip="0">functionSearch</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
