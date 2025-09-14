@@ -46,4 +46,5 @@ Verify Add Employee success
     # Kiểm tra đã vào trang Personal Details
     Wait Until Page Contains Element    xpath=//h6[text()='Personal Details']    timeout=10s
     Page Should Contain    Personal Details
+    Close Browser
 
