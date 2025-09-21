@@ -25,9 +25,9 @@ TC2:Login failed with invalid account
     Click Element    xpath=//button[@type="submit"]
 
 #    Chờ thông báo lỗi hiển thị
-    Wait Until Element Is Visible    xpath=//p[@class="oxd-text oxd-text--p oxd-alert-content-text"]    timeout=10s
-#    Kiểm tra nội dung thông báo lỗi
-    Element Text Should Be    xpath=//p[@class="oxd-text oxd-text--p oxd-alert-content-text"]    Invalid credentials
+    Wait Until Element Is Visible    xpath=//p[contains(@class,"oxd-alert-content-text")]    timeout=10s
+##    Kiểm tra nội dung thông báo lỗi
+    Element Text Should Be           xpath=//p[contains(@class,"oxd-alert-content-text")]    Invalid credentials
     Close Browser
 
 TC3:Login failed with invalid account
@@ -41,7 +41,7 @@ TC3:Login failed with invalid account
     Click Element    xpath=//button[@type="submit"]
 
 #    Chờ thông báo lỗi hiển thị
-    Wait Until Element Is Visible    xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]    timeout=10s
-#    Kiểm tra nội dung thông báo lỗi
-    Element Text Should Be    xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]    Required
-    Close Browser
+    Wait Until Element Is Visible    xpath=//label[text()='Password']/following::span[contains(@class,"oxd-input-field-error-message")]    timeout=10s
+#    Kiểm tra nội dung lỗi
+    Element Text Should Be          xpath=//label[text()='Password']/following::span[contains(@class,"oxd-input-field-error-message")]    Required
+     Close Browser

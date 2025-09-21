@@ -1,5 +1,8 @@
 *** Settings ***
-Library     SeleniumLibrary
+Library         SeleniumLibrary
+Resource        ../../resources/locators/menu.robot
+Resource        ../../resources/locators/add_employee_page.robot
+Resource        ../../resources/locators/employee_list_page.robot
 
 *** Variables ***
 ${url}          https://opensource-demo.orangehrmlive.com/
@@ -8,14 +11,14 @@ ${username}     Admin
 ${password}     admin123
 ${firstname}    Nguyễn
 ${middlename}   Khánh
-${lastname}     An
+${lastname}     An123
 ${fullname}     ${firstname} ${middlename} ${lastname}
-${employee_id}     12345
 
 *** Keywords ***
 Login To OrangeHRM
     [Tags]          Functional
-    Open Browser                        ${url}      ${browser}
+    Open Browser                        ${url}      ${browser}    options=add_experimental_option("detach", True)
+#    options=add_experimental_option("detach", True)  (Muốn giữ lại browser sau khi run test xong)
     Maximize Browser Window
     Wait Until Element Is Visible       xpath=//*[@name="username"]    timeout=10s
     Input Text                          xpath=//*[@name="username"]   ${username}
@@ -23,7 +26,6 @@ Login To OrangeHRM
     Click Element                       xpath=//button[@type="submit"]
     Sleep                               2s
     Wait Until Page Contains Element    xpath=//p[@class="oxd-userdropdown-name"]
-#    Close Browser
 
 
 *** Test Cases ***
@@ -33,44 +35,54 @@ Verify Add Employee success
     Login To OrangeHRM
 
     #--- Vào menu PIM > Add Employee ---
-    Click Element                       xpath=//span[text()='PIM']
-    Wait Until Element Is Visible       xpath=//a[text()='Add Employee']    timeout=10s
-    Click Element                       xpath=//a[text()='Add Employee']
+    Click Element                       ${MENU_PIM}
+    Wait Until Element Is Visible       ${ADD_EMP}    timeout=10s
+    Click Element                       ${ADD_EMP}
 
     # Nhập thông tin nhân viên cần thêm
-    Wait Until Element Is Visible       name=firstName    timeout=10s
-    Input Text                          name=firstName     ${firstname}
-    Input Text                          name=middleName    ${middlename}
-    Input Text                          name=lastName      ${lastname}
-     # Nhập Employee Id
-    Input Text    xpath=//label[text()='Employee Id']/ancestor::div[contains(@class,'oxd-input-group')]//input    ${employee_id}
+    Wait Until Element Is Visible       ${ADD_FIRSTNAME}    timeout=10s
+    Input Text                          ${ADD_FIRSTNAME}     ${firstname}
+    Input Text                          ${ADD_MIDDLENAME}    ${middlename}
+    Input Text                          ${ADD_LASTNAME}      ${lastname}
+    # Lấy giá trị trong field EmployeeID
+    ${employee_id}=    Get Value        ${ADD_EMPLOYEE_ID}
+    Log To Console    Employee ID là: ${employee_id}
 
-    # Click Save
-    Click Button                        xpath=//button[@type='submit']
+
+    Click Button                        ${BTN_SAVE}
 
     # --- Kiểm tra đã vào trang Personal Details ---
-    Wait Until Page Contains Element    xpath=//h6[text()='Personal Details']    timeout=10s
+    Wait Until Page Contains Element    ${HDR_PERSONAL_DETAILS}    timeout=10s
     Page Should Contain                 Personal Details
-     # Lưu Employee ID lại
-#    Wait Until Element Is Visible    xpath=//label[text()='Employee Id']/ancestor::div[contains(@class,'oxd-input-group')]//input    timeout=20s
-#    ${employee_id}=    Get Value    xpath=//label[text()='Employee Id']/ancestor::div[contains(@class,'oxd-input-group')]//input
-#    Log    Employee ID: ${employee_id}
-#    ${employee_id}=    Execute JavaScript    return document.evaluate("//label[text()='Employee Id']/ancestor::div[contains(@class,'oxd-input-group')]//input", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.value;
-    Log    Employee ID: ${employee_id}
-    # --- Vào Employee List ---
-    Click Element    xpath=//span[text()='PIM']
-    Wait Until Element Is Visible    xpath=//a[text()='Employee List']    timeout=10s
-    Click Element    xpath=//a[text()='Employee List']
+
+    # --- Vào page Employee List ---
+    Click Element                       ${EMP_LIST}
 
     # --- Tìm kiếm nhân viên mới ---
-    Wait Until Element Is Visible    xpath=//div[label[text()='Employee Id']]//input    timeout=15s
-    Input Text    xpath=//div[label[text()='Employee Id']]//input    ${employee_id}
-    Sleep    1s    # Đợi dropdown xuất hiện (auto-complete)
+    Wait Until Element Is Visible       ${LIST_EMPLOYEE_ID_INPUT}    timeout=15s
 
-    Click Button    xpath=//button[@type='submit' and contains(@class,'oxd-button--secondary')]
+    # --- Search theo employee Name ---
+    Input Text                          ${LIST_EMPLOYEE_NAME_INPUT}    ${fullname}
+    Sleep    3s
+    # --- Click button search ---
+    Click Button                        ${LIST_BTN_SEARCH}
 
     # --- Kiểm tra kết quả có nhân viên mới ---
-    Wait Until Element Is Visible    xpath=//div[@role='table']    timeout=10s
-    Page Should Contain Element      xpath=//div[@role='table']//div[text()='${FULLNAME}']
-    Close Browser
+    Wait Until Element Is Visible       ${LIST_TABLE}    timeout=10s
+    Sleep    5s
+    # Lấy giá trị ID ở dòng đầu tiên
+#    ${employee_id}=    Get Text    ${LIST_TABLE_ID_ROW1}
 
+    # Lấy all giá trị ID trong table
+    ${all_ids}=    Get WebElements      ${LIST_TABLE_ALL_IDS}
+    ${index}=    Set Variable    1
+    FOR    ${id}    IN    @{all_ids}
+        ${employee_id_result}=    Get Text    ${id}
+        Log To Console    \nRow ${index}: id = ${employee_id_result}
+        IF    $employee_id == $employee_id_result
+             Log To Console     Found employee row ${index}
+        END
+        ${index}=    Evaluate    ${index} + 1
+    END
+
+    Close Browser

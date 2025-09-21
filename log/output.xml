@@ -1,70 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.12.5 on win32)" generated="2025-09-14T17:35:57.118647" rpa="false" schemaversion="5">
-<suite id="s1" name="functionSearch" source="D:\Automation\Robot Framework\DemoRobotFramework\Tests\orangeHRM\functionSearch.robot">
-<test id="s1-t1" name="TC3:Login failed with invalid account" line="33">
+<robot generator="Robot 7.2.2 (Python 3.12.5 on win32)" generated="2025-09-14T21:40:39.769280" rpa="false" schemaversion="5">
+<suite id="s1" name="CrudFunction" source="D:\Automation\Robot Framework\DemoRobotFramework\Tests\orangeHRM\CrudFunction.robot">
+<test id="s1-t1" name="Verify Add Employee success" line="28">
+<kw name="Login To OrangeHRM">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-09-14T17:35:57.544351" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
-<arg>https://opensource-demo.orangehrmlive.com/</arg>
-<arg>chrome</arg>
+<msg time="2025-09-14T21:40:40.190741" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-09-14T17:35:57.543350" elapsed="10.211964"/>
+<status status="PASS" start="2025-09-14T21:40:40.190741" elapsed="6.164962"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-09-14T17:36:07.755314" elapsed="0.032529"/>
+<status status="PASS" start="2025-09-14T21:40:46.355703" elapsed="0.029828"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
 <arg>xpath=//*[@name="username"]</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-14T17:36:07.789168" elapsed="0.481343"/>
+<status status="PASS" start="2025-09-14T21:40:46.385531" elapsed="0.512144"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-14T17:36:08.271985" level="INFO">Typing text 'test' into text field 'xpath=//*[@name="username"]'.</msg>
+<msg time="2025-09-14T21:40:46.897675" level="INFO">Typing text 'Admin' into text field 'xpath=//*[@name="username"]'.</msg>
 <arg>xpath=//*[@name="username"]</arg>
-<arg>test</arg>
+<arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-14T17:36:08.271985" elapsed="0.148287"/>
+<status status="PASS" start="2025-09-14T21:40:46.897675" elapsed="0.322011"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-14T21:40:47.219686" level="INFO">Typing text 'admin123' into text field 'xpath=//*[@name="password"]'.</msg>
+<arg>xpath=//*[@name="password"]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-14T21:40:47.219686" elapsed="0.288150"/>
 </kw>
 <kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-09-14T17:36:08.420782" level="INFO">Clicking element 'xpath=//button[@type="submit"]'.</msg>
+<msg time="2025-09-14T21:40:47.507836" level="INFO">Clicking element 'xpath=//button[@type="submit"]'.</msg>
 <arg>xpath=//button[@type="submit"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-14T17:36:08.420272" elapsed="0.082926"/>
+<status status="PASS" start="2025-09-14T21:40:47.507836" elapsed="1.282626"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-09-14T21:40:50.792202" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-09-14T21:40:48.791464" elapsed="2.000738"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//p[@class="oxd-userdropdown-name"]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-09-14T21:40:50.792202" elapsed="0.031202"/>
+</kw>
+<tag>Functional</tag>
+<status status="PASS" start="2025-09-14T21:40:40.189235" elapsed="10.634169"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-14T21:40:50.824927" level="INFO">Clicking element 'xpath=//span[text()='PIM']'.</msg>
+<arg>xpath=//span[text()='PIM']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-14T21:40:50.823404" elapsed="0.848693"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]</arg>
+<arg>xpath=//a[text()='Add Employee']</arg>
 <arg>timeout=10s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-14T17:36:08.504271" elapsed="0.073737"/>
+<status status="PASS" start="2025-09-14T21:40:51.672097" elapsed="0.447612"/>
 </kw>
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2025-09-14T17:36:08.579098" level="INFO">Verifying element 'xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]' contains exact text 'Requireded'.</msg>
-<msg time="2025-09-14T17:36:08.766128" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-09-14T17:36:08.766128" level="FAIL">The text of element 'xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]' should have been 'Requireded' but it was 'Required'.</msg>
-<arg>xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]</arg>
-<arg>Requireded</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="FAIL" start="2025-09-14T17:36:08.579098" elapsed="0.191799">The text of element 'xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]' should have been 'Requireded' but it was 'Required'.</status>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-09-14T21:40:52.119709" level="INFO">Clicking element 'xpath=//a[text()='Add Employee']'.</msg>
+<arg>xpath=//a[text()='Add Employee']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-14T21:40:52.119709" elapsed="0.543981"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=firstName</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-09-14T21:40:52.663690" elapsed="0.447643"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-14T21:40:53.111333" level="INFO">Typing text 'Nguyễn' into text field 'name=firstName'.</msg>
+<arg>name=firstName</arg>
+<arg>${firstname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-14T21:40:53.111333" elapsed="0.147378"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-14T21:40:53.258711" level="INFO">Typing text 'Khánh' into text field 'name=middleName'.</msg>
+<arg>name=middleName</arg>
+<arg>${middlename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-14T21:40:53.258711" elapsed="0.243562"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-09-14T21:40:53.502273" level="INFO">Typing text 'An' into text field 'name=lastName'.</msg>
+<arg>name=lastName</arg>
+<arg>${lastname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-14T21:40:53.502273" elapsed="0.225860"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-09-14T21:40:53.730134" level="INFO">Clicking button 'xpath=//button[@type='submit']'.</msg>
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-09-14T21:40:53.729134" elapsed="0.233637"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//h6[text()='Personal Details']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-09-14T21:40:53.966283" elapsed="5.271429"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-09-14T21:40:59.322217" level="INFO">Current page contains text 'Personal Details'.</msg>
+<arg>Personal Details</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-09-14T21:40:59.239732" elapsed="0.082485"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="NOT RUN" start="2025-09-14T17:36:08.770897" elapsed="0.000000"/>
+<status status="PASS" start="2025-09-14T21:40:59.324229" elapsed="2.420335"/>
 </kw>
 <tag>Functional</tag>
-<status status="FAIL" start="2025-09-14T17:35:57.541102" elapsed="11.231211">The text of element 'xpath=//span[@class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]' should have been 'Requireded' but it was 'Required'.</status>
+<status status="PASS" start="2025-09-14T21:40:40.187938" elapsed="21.556626"/>
 </test>
-<status status="FAIL" start="2025-09-14T17:35:57.160508" elapsed="11.611805"/>
+<status status="PASS" start="2025-09-14T21:40:39.799606" elapsed="21.946961"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">Functional</stat>
+<stat pass="1" fail="0" skip="0">Functional</stat>
 </tag>
 <suite>
-<stat name="functionSearch" id="s1" pass="0" fail="1" skip="0">functionSearch</stat>
+<stat name="CrudFunction" id="s1" pass="1" fail="0" skip="0">CrudFunction</stat>
 </suite>
 </statistics>
 <errors>
