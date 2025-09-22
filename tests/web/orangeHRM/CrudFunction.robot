@@ -27,7 +27,6 @@ Login To OrangeHRM
     Sleep                               2s
     Wait Until Page Contains Element    xpath=//p[@class="oxd-userdropdown-name"]
 
-
 *** Test Cases ***
 Verify Add Employee success
     [Tags]      Functional
@@ -40,14 +39,21 @@ Verify Add Employee success
     Click Element                       ${ADD_EMP}
 
     # Nhập thông tin nhân viên cần thêm
-    Wait Until Element Is Visible       ${ADD_FIRSTNAME}    timeout=10s
-    Input Text                          ${ADD_FIRSTNAME}     ${firstname}
-    Input Text                          ${ADD_MIDDLENAME}    ${middlename}
-    Input Text                          ${ADD_LASTNAME}      ${lastname}
-    # Lấy giá trị trong field EmployeeID
+    Wait Until Element Is Visible       ${ADD_FIRSTNAME}            timeout=10s
+    Input Text                          ${ADD_FIRSTNAME}            ${firstname}
+    Input Text                          ${ADD_MIDDLENAME}           ${middlename}
+    Input Text                          ${ADD_LASTNAME}             ${lastname}
+
+    # Nhập thông tin login
+    ${status}=    Get Element Attribute    xpath=//label//input[@type='checkbox']    checked
+    Run Keyword If    '${status}' != 'true'    Click Element    ${CHECKBOX_CREATE_LOGIN}
+    Input Text                          ${ADD_USERNAME}             test01
+    Input Text                          ${ADD_PASSWORD}             Test01@@
+    Input Text                          ${ADD_CONFIRM_PASSWORD}     Test01@@
+
+    #--- Lấy giá trị trong field EmployeeID ---
     ${employee_id}=    Get Value        ${ADD_EMPLOYEE_ID}
     Log To Console    Employee ID là: ${employee_id}
-
 
     Click Button                        ${BTN_SAVE}
 
@@ -64,14 +70,13 @@ Verify Add Employee success
     # --- Search theo employee Name ---
     Input Text                          ${LIST_EMPLOYEE_NAME_INPUT}    ${fullname}
     Sleep    3s
-    # --- Click button search ---
+
     Click Button                        ${LIST_BTN_SEARCH}
 
     # --- Kiểm tra kết quả có nhân viên mới ---
     Wait Until Element Is Visible       ${LIST_TABLE}    timeout=10s
     Sleep    5s
-    # Lấy giá trị ID ở dòng đầu tiên
-#    ${employee_id}=    Get Text    ${LIST_TABLE_ID_ROW1}
+#    ${employee_id}=    Get Text    ${LIST_TABLE_ID_ROW1}    # Lấy giá trị ID ở dòng đầu tiên
 
     # Lấy all giá trị ID trong table
     ${all_ids}=    Get WebElements      ${LIST_TABLE_ALL_IDS}
