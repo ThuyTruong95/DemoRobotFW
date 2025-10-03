@@ -1,148 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.12.5 on win32)" generated="2025-09-22T23:35:02.429315" rpa="false" schemaversion="5">
-<suite id="s1" name="Test Api" source="D:\Automation\Robot Framework\DemoRobotFramework\tests\api\test_api.robot">
-<test id="s1-t1" name="Get Users use list variable" line="22">
-<kw name="Call API Get User" owner="reqres">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-22T23:35:03.473772" level="INFO">${header} = {'accept': 'application/json', 'x-api-key': 'reqres-free-v1'}</msg>
-<var>${header}</var>
-<arg>accept=application/json</arg>
-<arg>x-api-key=${x-api-key}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.473772" elapsed="0.000000"/>
+<robot generator="Robot 5.0.1 (Python 3.12.5 on win32)" generated="20251003 11:27:51.921" rpa="false" schemaversion="3">
+<suite id="s1" name="Demo" source="F:\Automation test\Robot Framework\DemoRobotFW\tests\web\demo.robot">
+<test id="s1-t1" name="Test web: Radio button &amp; Checkbox" line="34">
+<kw name="Open browser and go to web page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20251003 11:27:52.084" level="INFO">Opening browser 'chrome' to base url 'https://testautomationpractice.blogspot.com/'.</msg>
+<status status="PASS" starttime="20251003 11:27:52.083" endtime="20251003 11:27:56.246"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-22T23:35:03.489538" level="INFO">${params} = {'page': '1', 'per_page': '3'}</msg>
-<var>${params}</var>
-<arg>page=${page}</arg>
-<arg>per_page=${per_page}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.489538" elapsed="0.000000"/>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20251003 11:27:56.246" endtime="20251003 11:27:56.273"/>
 </kw>
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-22T23:35:03.489538" level="INFO">Creating Session using : alias=api, url=https://reqres.in/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>api</arg>
-<arg>${BASE_URL}</arg>
-<arg>disable_warnings=1</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-22T23:35:03.489538" elapsed="0.000000"/>
+<status status="PASS" starttime="20251003 11:27:52.083" endtime="20251003 11:27:56.273"/>
 </kw>
-<kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-09-22T23:35:03.616358" level="INFO">GET Request : url=https://reqres.in/api/users?page=1&amp;per_page=3 
- path_url=/api/users?page=1&amp;per_page=3 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'x-api-key': 'reqres-free-v1'} 
- body=None 
- </msg>
-<msg time="2025-09-22T23:35:03.616358" level="INFO">GET Response : url=https://reqres.in/api/users?page=1&amp;per_page=3 
- status=200, reason=OK 
- headers={'Date': 'Mon, 22 Sep 2025 16:35:04 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"28d-GCj7DeLLt8jGoCeOubVSkySE02I"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=IOX6Jk2tDurhAm5EG4qrN%2F2y7dbqJ5uS%2Fciiefw1uFY%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1758558176"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=IOX6Jk2tDurhAm5EG4qrN%2F2y7dbqJ5uS%2Fciiefw1uFY%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1758558176"', 'Server': 'cloudflare', 'Vary': 'Origin, accept-encoding', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Request-Id': '049524bf-2b65-feeb-2ac4-ed92e5f00fa5', 'X-Xss-Protection': '1; mode=block', 'Age': '727', 'Cache-Control': 'max-age=14400', 'cf-cache-status': 'HIT', 'Content-Encoding': 'gzip', 'CF-RAY': '9833369f2c60104f-HKG'} 
- body={"page":1,"per_page":3,"total":12,"total_pages":4,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
- </msg>
-<msg time="2025-09-22T23:35:03.616358" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>alias=api</arg>
-<arg>url=/users</arg>
-<arg>headers=${header}</arg>
-<arg>params=${params}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.489538" elapsed="0.126820"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20251003 11:27:58.274" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20251003 11:27:56.273" endtime="20251003 11:27:58.274"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-09-22T23:35:03.616358" elapsed="0.000000"/>
-</return>
-<msg time="2025-09-22T23:35:03.616358" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${page}</arg>
-<arg>${per_page}</arg>
-<status status="PASS" start="2025-09-22T23:35:03.473772" elapsed="0.142586"/>
+<kw name="Radio Button Should Not Be Selected" library="SeleniumLibrary">
+<arg>gender</arg>
+<doc>Verifies radio button group ``group_name`` has no selection.</doc>
+<msg timestamp="20251003 11:27:58.275" level="INFO">Verifying radio button 'gender' has no selection.</msg>
+<status status="PASS" starttime="20251003 11:27:58.274" endtime="20251003 11:27:58.307"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:35:03.631072" level="INFO">${status} = 200</msg>
-<var>${status}</var>
-<arg>${response.status_code}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.616358" elapsed="0.014714"/>
+<kw name="Select Radio Button" library="SeleniumLibrary">
+<arg>gender</arg>
+<arg>female</arg>
+<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
+<msg timestamp="20251003 11:27:58.308" level="INFO">Selecting 'female' from radio button 'gender'.</msg>
+<status status="PASS" starttime="20251003 11:27:58.307" endtime="20251003 11:27:58.363"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:35:03.632087" level="INFO">${json_data} = {'page': 1, 'per_page': 3, 'total': 12, 'total_pages': 4, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-i...</msg>
-<var>${json_data}</var>
-<arg>${response.json()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.631072" elapsed="0.001015"/>
+<kw name="Radio Button Should Be Set To" library="SeleniumLibrary">
+<arg>gender</arg>
+<arg>female</arg>
+<doc>Verifies radio button group ``group_name`` is set to ``value``.</doc>
+<msg timestamp="20251003 11:27:58.364" level="INFO">Verifying radio button 'gender' has selection 'female'.</msg>
+<status status="PASS" starttime="20251003 11:27:58.364" endtime="20251003 11:27:58.385"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:35:03.632087" level="INFO">${data} = [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}, {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_na...</msg>
-<var>${data}</var>
-<arg>${json_data['data']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
+<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
+<arg>id=monday</arg>
+<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
+<msg timestamp="20251003 11:27:58.385" level="INFO">Verifying checkbox 'id=monday' is not selected.</msg>
+<status status="PASS" starttime="20251003 11:27:58.385" endtime="20251003 11:27:58.407"/>
 </kw>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-09-22T23:35:03.632087" level="INFO">@{emails} = [ ]</msg>
-<var>@{emails}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>id=monday</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20251003 11:27:58.407" level="INFO">Selecting checkbox 'id=monday'.</msg>
+<status status="PASS" starttime="20251003 11:27:58.407" endtime="20251003 11:27:58.451"/>
 </kw>
-<for flavor="IN">
-<iter>
-<kw name="Append To List" owner="Collections">
-<arg>${emails}</arg>
-<arg>${user['email']}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
+<kw name="Checkbox Should Be Selected" library="SeleniumLibrary">
+<arg>id=monday</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<msg timestamp="20251003 11:27:58.451" level="INFO">Verifying checkbox 'id=monday' is selected.</msg>
+<status status="PASS" starttime="20251003 11:27:58.451" endtime="20251003 11:27:58.467"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${user['email']}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
-</kw>
-<var name="${user}">{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}</var>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Append To List" owner="Collections">
-<arg>${emails}</arg>
-<arg>${user['email']}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${user['email']}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
-</kw>
-<var name="${user}">{'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}</var>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Append To List" owner="Collections">
-<arg>${emails}</arg>
-<arg>${user['email']}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${user['email']}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
-</kw>
-<var name="${user}">{'id': 3, 'email': 'emma.wong@reqres.in', 'first_name': 'Emma', 'last_name': 'Wong', 'avatar': 'https://reqres.in/img/faces/3-image.jpg'}</var>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
-</iter>
-<var>${user}</var>
-<value>@{data}</value>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
-</for>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Emails: ${emails}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-22T23:35:03.632087" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2025-09-22T23:35:03.473772" elapsed="0.158315"/>
+<status status="PASS" starttime="20251003 11:27:52.083" endtime="20251003 11:27:58.467"/>
 </test>
-<status status="PASS" start="2025-09-22T23:35:02.475708" elapsed="1.156379"/>
+<status status="PASS" starttime="20251003 11:27:51.935" endtime="20251003 11:27:58.468"/>
 </suite>
 <statistics>
 <total>
@@ -151,7 +71,7 @@
 <tag>
 </tag>
 <suite>
-<stat name="Test Api" id="s1" pass="1" fail="0" skip="0">Test Api</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Demo">Demo</stat>
 </suite>
 </statistics>
 <errors>
