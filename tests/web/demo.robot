@@ -53,6 +53,18 @@ Test web: Radio button & Checkbox
     # Kiểm tra checkbox đang được select
     Checkbox Should Be Selected         id=monday
 
+Test web: Dropdown
+    Open browser and go to web page
+    Sleep   2s
+    
+    # List ra các giá trị trong dropdown list
+    ${list_country}=                    Get List Items                      id=country
+    Log To Console    ${list_country}
+
+    # Kiểm tra giá trị "United States" đang được select
+    List Selection Should Be           id=country
+    # Select 1 giá trị trong dropdown list
+    Select From List By Label           id=country      Canada
 
 
 

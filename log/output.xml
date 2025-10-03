@@ -1,77 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.12.5 on win32)" generated="20251003 11:27:51.921" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.12.5 on win32)" generated="20251003 12:02:39.444" rpa="false" schemaversion="3">
 <suite id="s1" name="Demo" source="F:\Automation test\Robot Framework\DemoRobotFW\tests\web\demo.robot">
-<test id="s1-t1" name="Test web: Radio button &amp; Checkbox" line="34">
+<test id="s1-t1" name="Test web: Dropdown" line="56">
 <kw name="Open browser and go to web page">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20251003 11:27:52.084" level="INFO">Opening browser 'chrome' to base url 'https://testautomationpractice.blogspot.com/'.</msg>
-<status status="PASS" starttime="20251003 11:27:52.083" endtime="20251003 11:27:56.246"/>
+<msg timestamp="20251003 12:02:39.612" level="INFO">Opening browser 'chrome' to base url 'https://testautomationpractice.blogspot.com/'.</msg>
+<status status="PASS" starttime="20251003 12:02:39.611" endtime="20251003 12:02:43.647"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20251003 11:27:56.246" endtime="20251003 11:27:56.273"/>
+<status status="PASS" starttime="20251003 12:02:43.647" endtime="20251003 12:02:43.672"/>
 </kw>
-<status status="PASS" starttime="20251003 11:27:52.083" endtime="20251003 11:27:56.273"/>
+<status status="PASS" starttime="20251003 12:02:39.611" endtime="20251003 12:02:43.672"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20251003 11:27:58.274" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20251003 11:27:56.273" endtime="20251003 11:27:58.274"/>
+<msg timestamp="20251003 12:02:45.673" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20251003 12:02:43.672" endtime="20251003 12:02:45.673"/>
 </kw>
-<kw name="Radio Button Should Not Be Selected" library="SeleniumLibrary">
-<arg>gender</arg>
-<doc>Verifies radio button group ``group_name`` has no selection.</doc>
-<msg timestamp="20251003 11:27:58.275" level="INFO">Verifying radio button 'gender' has no selection.</msg>
-<status status="PASS" starttime="20251003 11:27:58.274" endtime="20251003 11:27:58.307"/>
+<kw name="Get List Items" library="SeleniumLibrary">
+<var>${list_country}</var>
+<arg>id=country</arg>
+<doc>Returns all labels or values of selection list ``locator``.</doc>
+<msg timestamp="20251003 12:02:45.750" level="INFO">${list_country} = ['United States', 'Canada', 'United Kingdom', 'Germany', 'France', 'Australia', 'Japan', 'China', 'Brazil', 'India']</msg>
+<status status="PASS" starttime="20251003 12:02:45.674" endtime="20251003 12:02:45.750"/>
 </kw>
-<kw name="Select Radio Button" library="SeleniumLibrary">
-<arg>gender</arg>
-<arg>female</arg>
-<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
-<msg timestamp="20251003 11:27:58.308" level="INFO">Selecting 'female' from radio button 'gender'.</msg>
-<status status="PASS" starttime="20251003 11:27:58.307" endtime="20251003 11:27:58.363"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${list_country}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20251003 12:02:45.751" endtime="20251003 12:02:45.751"/>
 </kw>
-<kw name="Radio Button Should Be Set To" library="SeleniumLibrary">
-<arg>gender</arg>
-<arg>female</arg>
-<doc>Verifies radio button group ``group_name`` is set to ``value``.</doc>
-<msg timestamp="20251003 11:27:58.364" level="INFO">Verifying radio button 'gender' has selection 'female'.</msg>
-<status status="PASS" starttime="20251003 11:27:58.364" endtime="20251003 11:27:58.385"/>
+<kw name="List Selection Should Be" library="SeleniumLibrary">
+<arg>id=country</arg>
+<doc>Verifies selection list ``locator`` has ``expected`` options selected.</doc>
+<msg timestamp="20251003 12:02:45.751" level="INFO">Verifying list 'id=country' has options [  ] selected.</msg>
+<msg timestamp="20251003 12:02:45.756" level="INFO">Current page contains list 'id=country'.</msg>
+<msg timestamp="20251003 12:02:45.986" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20251003 12:02:45.986" level="FAIL">List 'id=country' should have had selection [  ] but selection was [ United States (usa) ].</msg>
+<status status="FAIL" starttime="20251003 12:02:45.751" endtime="20251003 12:02:45.991"/>
 </kw>
-<kw name="Checkbox Should Not Be Selected" library="SeleniumLibrary">
-<arg>id=monday</arg>
-<doc>Verifies checkbox ``locator`` is not selected/checked.</doc>
-<msg timestamp="20251003 11:27:58.385" level="INFO">Verifying checkbox 'id=monday' is not selected.</msg>
-<status status="PASS" starttime="20251003 11:27:58.385" endtime="20251003 11:27:58.407"/>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>id=country</arg>
+<arg>Canada</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="NOT RUN" starttime="20251003 12:02:45.991" endtime="20251003 12:02:45.991"/>
 </kw>
-<kw name="Select Checkbox" library="SeleniumLibrary">
-<arg>id=monday</arg>
-<doc>Selects the checkbox identified by ``locator``.</doc>
-<msg timestamp="20251003 11:27:58.407" level="INFO">Selecting checkbox 'id=monday'.</msg>
-<status status="PASS" starttime="20251003 11:27:58.407" endtime="20251003 11:27:58.451"/>
-</kw>
-<kw name="Checkbox Should Be Selected" library="SeleniumLibrary">
-<arg>id=monday</arg>
-<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
-<msg timestamp="20251003 11:27:58.451" level="INFO">Verifying checkbox 'id=monday' is selected.</msg>
-<status status="PASS" starttime="20251003 11:27:58.451" endtime="20251003 11:27:58.467"/>
-</kw>
-<status status="PASS" starttime="20251003 11:27:52.083" endtime="20251003 11:27:58.467"/>
+<status status="FAIL" starttime="20251003 12:02:39.611" endtime="20251003 12:02:45.992">List 'id=country' should have had selection [  ] but selection was [ United States (usa) ].</status>
 </test>
-<status status="PASS" starttime="20251003 11:27:51.935" endtime="20251003 11:27:58.468"/>
+<status status="FAIL" starttime="20251003 12:02:39.460" endtime="20251003 12:02:45.992"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Demo">Demo</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Demo">Demo</stat>
 </suite>
 </statistics>
 <errors>
