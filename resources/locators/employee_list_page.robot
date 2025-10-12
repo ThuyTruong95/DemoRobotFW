@@ -7,4 +7,3 @@ ${LIST_TABLE}                   xpath=//div[@role='table']
 ${LIST_TABLE_BODY}              xpath=//div[@class='oxd-table-body']
 ${LIST_TABLE_ALL_IDS}           xpath=//div[@class='oxd-table-body']//div[@role='row']//div[@role='cell'][2]
 ${LIST_TABLE_ID_ROW1}           xpath=(//div[@class='oxd-table-body']//div[@role='row'][1]//div[@role='cell'])[2]
-

@@ -1,66 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.12.5 on win32)" generated="20251003 12:02:39.444" rpa="false" schemaversion="3">
-<suite id="s1" name="Demo" source="F:\Automation test\Robot Framework\DemoRobotFW\tests\web\demo.robot">
-<test id="s1-t1" name="Test web: Dropdown" line="56">
-<kw name="Open browser and go to web page">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${url}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20251003 12:02:39.612" level="INFO">Opening browser 'chrome' to base url 'https://testautomationpractice.blogspot.com/'.</msg>
-<status status="PASS" starttime="20251003 12:02:39.611" endtime="20251003 12:02:43.647"/>
+<robot generator="Robot 7.2.2 (Python 3.12.5 on win32)" generated="2025-10-12T23:51:09.942023" rpa="false" schemaversion="5">
+<suite id="s1" name="demoDB" source="D:\Automation\Robot Framework\DemoRobotFramework\tests\database\demoDB.robot">
+<test id="s1-t1" name="Create Table In SQLite" line="23">
+<kw name="Connect To Database" owner="DatabaseLibrary">
+<msg time="2025-10-12T23:51:10.062768" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
+<msg time="2025-10-12T23:51:10.069014" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2025-10-12T23:51:10.077817" level="INFO">Connect to DB using : sqlite3.connect(database='D:\Automation\Robot Framework\DemoRobotFramework/data/SQLite.db')</msg>
+<arg>sqlite3</arg>
+<arg>${DBPATH}</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="PASS" start="2025-10-12T23:51:10.062768" elapsed="0.016067"/>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20251003 12:02:43.647" endtime="20251003 12:02:43.672"/>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-10-12T23:51:10.078835" level="INFO">${query} = CREATE TABLE IF NOT EXISTS products ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, price REAL, stock INTEGER );</msg>
+<var>${query}</var>
+<arg>CREATE TABLE IF NOT EXISTS products (</arg>
+<arg>id INTEGER PRIMARY KEY AUTOINCREMENT,</arg>
+<arg>name TEXT NOT NULL,</arg>
+<arg>price REAL,</arg>
+<arg>stock INTEGER</arg>
+<arg>);</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-10-12T23:51:10.078835" elapsed="0.000000"/>
 </kw>
-<status status="PASS" starttime="20251003 12:02:39.611" endtime="20251003 12:02:43.672"/>
+<kw name="Execute Sql String" owner="DatabaseLibrary">
+<msg time="2025-10-12T23:51:10.078835" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS products ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, price REAL, stock INTEGER );&lt;/code&gt;</msg>
+<msg time="2025-10-12T23:51:10.087915" level="INFO">Commit the transaction</msg>
+<arg>${query}</arg>
+<doc>Executes the ``sql_string`` as a single SQL command.</doc>
+<status status="PASS" start="2025-10-12T23:51:10.078835" elapsed="0.009080"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20251003 12:02:45.673" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20251003 12:02:43.672" endtime="20251003 12:02:45.673"/>
+<kw name="Query" owner="DatabaseLibrary">
+<msg time="2025-10-12T23:51:10.093796" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT name FROM sqlite_master WHERE type='table';&lt;/code&gt;</msg>
+<msg time="2025-10-12T23:51:10.093796" level="INFO">Commit the transaction</msg>
+<msg time="2025-10-12T23:51:10.094807" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 4 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;name&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;demo&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;users&lt;/td&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;2&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;sqlite_sequence&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;3&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;products&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2025-10-12T23:51:10.094807" level="INFO">${tables} = [('demo',), ('users',), ('sqlite_sequence',), ('products',)]</msg>
+<var>${tables}</var>
+<arg>SELECT name FROM sqlite_master WHERE type='table';</arg>
+<doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
+The type of row values depends on the database module -
+usually they are tuples or tuple-like objects.</doc>
+<status status="PASS" start="2025-10-12T23:51:10.087915" elapsed="0.006892"/>
 </kw>
-<kw name="Get List Items" library="SeleniumLibrary">
-<var>${list_country}</var>
-<arg>id=country</arg>
-<doc>Returns all labels or values of selection list ``locator``.</doc>
-<msg timestamp="20251003 12:02:45.750" level="INFO">${list_country} = ['United States', 'Canada', 'United Kingdom', 'Germany', 'France', 'Australia', 'Japan', 'China', 'Brazil', 'India']</msg>
-<status status="PASS" starttime="20251003 12:02:45.674" endtime="20251003 12:02:45.750"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${list_country}</arg>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n✅ Các bảng hiện có: ${tables}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20251003 12:02:45.751" endtime="20251003 12:02:45.751"/>
+<status status="PASS" start="2025-10-12T23:51:10.096317" elapsed="0.000000"/>
 </kw>
-<kw name="List Selection Should Be" library="SeleniumLibrary">
-<arg>id=country</arg>
-<doc>Verifies selection list ``locator`` has ``expected`` options selected.</doc>
-<msg timestamp="20251003 12:02:45.751" level="INFO">Verifying list 'id=country' has options [  ] selected.</msg>
-<msg timestamp="20251003 12:02:45.756" level="INFO">Current page contains list 'id=country'.</msg>
-<msg timestamp="20251003 12:02:45.986" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20251003 12:02:45.986" level="FAIL">List 'id=country' should have had selection [  ] but selection was [ United States (usa) ].</msg>
-<status status="FAIL" starttime="20251003 12:02:45.751" endtime="20251003 12:02:45.991"/>
+<kw name="Disconnect From Database" owner="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2025-10-12T23:51:10.096317" elapsed="0.000000"/>
 </kw>
-<kw name="Select From List By Label" library="SeleniumLibrary">
-<arg>id=country</arg>
-<arg>Canada</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="NOT RUN" starttime="20251003 12:02:45.991" endtime="20251003 12:02:45.991"/>
-</kw>
-<status status="FAIL" starttime="20251003 12:02:39.611" endtime="20251003 12:02:45.992">List 'id=country' should have had selection [  ] but selection was [ United States (usa) ].</status>
+<doc>Tạo bảng mới trong file SQLite local</doc>
+<status status="PASS" start="2025-10-12T23:51:10.062768" elapsed="0.033549"/>
 </test>
-<status status="FAIL" starttime="20251003 12:02:39.460" endtime="20251003 12:02:45.992"/>
+<status status="PASS" start="2025-10-12T23:51:09.970603" elapsed="0.125714"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Demo">Demo</stat>
+<stat name="demoDB" id="s1" pass="1" fail="0" skip="0">demoDB</stat>
 </suite>
 </statistics>
 <errors>

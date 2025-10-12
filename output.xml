@@ -1,290 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.12.5 on win32)" generated="2025-09-22T23:58:25.073005" rpa="false" schemaversion="5">
-<suite id="s1" name="Test Api" source="D:\Automation\Robot Framework\DemoRobotFramework\tests\api\test_api.robot">
-<test id="s1-t1" name="Get Users with param" line="12">
-<kw name="Call API Get User" owner="reqres">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-22T23:58:25.992952" level="INFO">${header} = {'accept': 'application/json', 'x-api-key': 'reqres-free-v1'}</msg>
-<var>${header}</var>
-<arg>accept=application/json</arg>
-<arg>x-api-key=${x-api-key}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-22T23:58:25.991949" elapsed="0.001003"/>
+<robot generator="Robot 7.2.2 (Python 3.12.5 on win32)" generated="2025-10-01T16:09:55.372668" rpa="false" schemaversion="5">
+<suite id="s1" name="Testweb" source="D:\Automation\Robot Framework\DemoRobotFramework\tests\web\youtube\testweb.robot">
+<test id="s1-t1" name="TC1" line="9">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-10-01T16:09:55.699576" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com/'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-10-01T16:09:55.699576" elapsed="3.256073"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-22T23:58:25.992952" level="INFO">${params} = {'page': '1', 'per_page': '3'}</msg>
-<var>${params}</var>
-<arg>page=${page}</arg>
-<arg>per_page=${per_page}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-22T23:58:25.992952" elapsed="0.000000"/>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-10-01T16:09:58.956161" elapsed="0.144509"/>
 </kw>
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-22T23:58:25.992952" level="INFO">Creating Session using : alias=api, url=https://reqres.in/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>api</arg>
-<arg>${BASE_URL}</arg>
-<arg>disable_warnings=1</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-22T23:58:25.992952" elapsed="0.001002"/>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-10-01T16:09:59.103669" level="INFO">Typing text 'facebook' into text field 'xpath=//*[@id="APjFqb"]'.</msg>
+<arg>xpath=//*[@id="APjFqb"]</arg>
+<arg>facebook</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-10-01T16:09:59.101670" elapsed="0.654151"/>
 </kw>
-<kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-09-22T23:58:26.129371" level="INFO">GET Request : url=https://reqres.in/api/users?page=1&amp;per_page=3 
- path_url=/api/users?page=1&amp;per_page=3 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'x-api-key': 'reqres-free-v1'} 
- body=None 
- </msg>
-<msg time="2025-09-22T23:58:26.129371" level="INFO">GET Response : url=https://reqres.in/api/users?page=1&amp;per_page=3 
- status=200, reason=OK 
- headers={'Date': 'Mon, 22 Sep 2025 16:58:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"28d-GCj7DeLLt8jGoCeOubVSkySE02I"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=IOX6Jk2tDurhAm5EG4qrN%2F2y7dbqJ5uS%2Fciiefw1uFY%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1758558176"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=IOX6Jk2tDurhAm5EG4qrN%2F2y7dbqJ5uS%2Fciiefw1uFY%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1758558176"', 'Server': 'cloudflare', 'Vary': 'Origin, accept-encoding', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Request-Id': '049524bf-2b65-feeb-2ac4-ed92e5f00fa5', 'X-Xss-Protection': '1; mode=block', 'Age': '2130', 'Cache-Control': 'max-age=14400', 'cf-cache-status': 'HIT', 'Content-Encoding': 'gzip', 'CF-RAY': '983358dd3fbe0b53-HKG'} 
- body={"page":1,"per_page":3,"total":12,"total_pages":4,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
- </msg>
-<msg time="2025-09-22T23:58:26.129371" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>alias=api</arg>
-<arg>url=/users</arg>
-<arg>headers=${header}</arg>
-<arg>params=${params}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-22T23:58:25.993954" elapsed="0.135417"/>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2025-10-01T16:09:59.757332" level="INFO">Sending key(s) ('RETURN',) to xpath=//*[@id="APjFqb"] element.</msg>
+<msg time="2025-10-01T16:10:00.133992" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2025-10-01T16:10:00.133992" level="INFO">Releasing special key RETURN.</msg>
+<arg>xpath=//*[@id="APjFqb"]</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2025-10-01T16:09:59.757332" elapsed="2.070327"/>
 </kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-09-22T23:58:26.140126" elapsed="0.000000"/>
-</return>
-<msg time="2025-09-22T23:58:26.140126" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${page}</arg>
-<arg>${per_page}</arg>
-<status status="PASS" start="2025-09-22T23:58:25.990888" elapsed="0.149238"/>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-10-01T16:10:21.828979" level="INFO">Slept 20 seconds.</msg>
+<arg>20s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-10-01T16:10:01.828660" elapsed="20.000319"/>
 </kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.140126" level="INFO">${status} = 200</msg>
-<var>${status}</var>
-<arg>${response.status_code}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.140126" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.140126" level="INFO">${json_data} = {'page': 1, 'per_page': 3, 'total': 12, 'total_pages': 4, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-i...</msg>
-<var>${json_data}</var>
-<arg>${response.json()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.140126" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.140126" level="INFO">${total} = 12</msg>
-<var>${total}</var>
-<arg>${json_data['total']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.140126" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.145078" level="INFO">${data} = [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}, {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_na...</msg>
-<var>${data}</var>
-<arg>${json_data['data']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.140126" elapsed="0.004952"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Status: ${status}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.145078" elapsed="0.000000"/>
-</kw>
-<kw name="Should Be Equal As Integers" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.145078" level="INFO">Argument types are:
-&lt;class 'int'&gt;
-&lt;class 'str'&gt;</msg>
-<arg>${status}</arg>
-<arg>200</arg>
-<doc>Fails if objects are unequal after converting them to integers.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.145078" elapsed="0.000000"/>
-</kw>
-<doc>Call API Get user có truyền param</doc>
-<status status="PASS" start="2025-09-22T23:58:25.989891" elapsed="0.155187"/>
+<status status="PASS" start="2025-10-01T16:09:55.698509" elapsed="26.131572"/>
 </test>
-<test id="s1-t2" name="Get Users use list variable" line="22">
-<kw name="Call API Get User" owner="reqres">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.145078" level="INFO">${header} = {'accept': 'application/json', 'x-api-key': 'reqres-free-v1'}</msg>
-<var>${header}</var>
-<arg>accept=application/json</arg>
-<arg>x-api-key=${x-api-key}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.145078" elapsed="0.000000"/>
-</kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.145078" level="INFO">${params} = {'page': '1', 'per_page': '3'}</msg>
-<var>${params}</var>
-<arg>page=${page}</arg>
-<arg>per_page=${per_page}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.145078" elapsed="0.000000"/>
-</kw>
-<kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-09-22T23:58:26.149223" level="INFO">Creating Session using : alias=api, url=https://reqres.in/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<arg>api</arg>
-<arg>${BASE_URL}</arg>
-<arg>disable_warnings=1</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-09-22T23:58:26.145078" elapsed="0.004145"/>
-</kw>
-<kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-09-22T23:58:26.270621" level="INFO">GET Request : url=https://reqres.in/api/users?page=1&amp;per_page=3 
- path_url=/api/users?page=1&amp;per_page=3 
- headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'x-api-key': 'reqres-free-v1'} 
- body=None 
- </msg>
-<msg time="2025-09-22T23:58:26.270621" level="INFO">GET Response : url=https://reqres.in/api/users?page=1&amp;per_page=3 
- status=200, reason=OK 
- headers={'Date': 'Mon, 22 Sep 2025 16:58:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"28d-GCj7DeLLt8jGoCeOubVSkySE02I"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=IOX6Jk2tDurhAm5EG4qrN%2F2y7dbqJ5uS%2Fciiefw1uFY%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1758558176"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=IOX6Jk2tDurhAm5EG4qrN%2F2y7dbqJ5uS%2Fciiefw1uFY%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1758558176"', 'Server': 'cloudflare', 'Vary': 'Origin, accept-encoding', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Request-Id': '049524bf-2b65-feeb-2ac4-ed92e5f00fa5', 'X-Xss-Protection': '1; mode=block', 'Age': '2130', 'Cache-Control': 'max-age=14400', 'cf-cache-status': 'HIT', 'Content-Encoding': 'gzip', 'CF-RAY': '983358de0bd9e2e0-HKG'} 
- body={"page":1,"per_page":3,"total":12,"total_pages":4,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
- </msg>
-<msg time="2025-09-22T23:58:26.270621" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>alias=api</arg>
-<arg>url=/users</arg>
-<arg>headers=${header}</arg>
-<arg>params=${params}</arg>
-<arg>expected_status=any</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.149223" elapsed="0.121398"/>
-</kw>
-<return>
-<value>${response}</value>
-<status status="PASS" start="2025-09-22T23:58:26.270621" elapsed="0.000000"/>
-</return>
-<msg time="2025-09-22T23:58:26.273089" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>${page}</arg>
-<arg>${per_page}</arg>
-<status status="PASS" start="2025-09-22T23:58:26.145078" elapsed="0.128011"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.273089" level="INFO">${json_data} = {'page': 1, 'per_page': 3, 'total': 12, 'total_pages': 4, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-i...</msg>
-<var>${json_data}</var>
-<arg>${response.json()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.273089" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.273089" level="INFO">${status} = 200</msg>
-<var>${status}</var>
-<arg>${response.status_code}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.273089" elapsed="0.000000"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>SCALAR EXAMPLE -- Status: ${status}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.273089" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.273089" level="INFO">${data} = [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}, {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_na...</msg>
-<var>${data}</var>
-<arg>${json_data['data']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.273089" elapsed="0.000000"/>
-</kw>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.273089" level="INFO">@{emails} = [ ]</msg>
-<var>@{emails}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.273089" elapsed="0.000000"/>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.273089" level="INFO">${email} = george.bluth@reqres.in</msg>
-<var>${email}</var>
-<arg>${user['email']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.273089" elapsed="0.000000"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${emails}</arg>
-<arg>${email}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.273089" elapsed="0.005759"/>
-</kw>
-<var name="${user}">{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}</var>
-<status status="PASS" start="2025-09-22T23:58:26.273089" elapsed="0.005759"/>
-</iter>
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.278848" level="INFO">${email} = janet.weaver@reqres.in</msg>
-<var>${email}</var>
-<arg>${user['email']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.278848" elapsed="0.000000"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${emails}</arg>
-<arg>${email}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.278848" elapsed="0.000000"/>
-</kw>
-<var name="${user}">{'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}</var>
-<status status="PASS" start="2025-09-22T23:58:26.278848" elapsed="0.000000"/>
-</iter>
-<iter>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.280858" level="INFO">${email} = emma.wong@reqres.in</msg>
-<var>${email}</var>
-<arg>${user['email']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.280858" elapsed="0.000000"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${emails}</arg>
-<arg>${email}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.280858" elapsed="0.000000"/>
-</kw>
-<var name="${user}">{'id': 3, 'email': 'emma.wong@reqres.in', 'first_name': 'Emma', 'last_name': 'Wong', 'avatar': 'https://reqres.in/img/faces/3-image.jpg'}</var>
-<status status="PASS" start="2025-09-22T23:58:26.278848" elapsed="0.002010"/>
-</iter>
-<var>${user}</var>
-<value>@{data}</value>
-<status status="PASS" start="2025-09-22T23:58:26.273089" elapsed="0.007769"/>
-</for>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.280858" level="INFO">LIST EXAMPLE -- Emails: ['george.bluth@reqres.in', 'janet.weaver@reqres.in', 'emma.wong@reqres.in']</msg>
-<arg>LIST EXAMPLE -- Emails: ${emails}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.280858" elapsed="0.000000"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.280858" level="INFO">${support} = {'url': 'https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral', 'text': 'Tired of writing endless social media content? Let Content Caddy generate it for you.'}</msg>
-<var>${support}</var>
-<arg>${json_data['support']}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.280858" elapsed="0.000000"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.280858" level="INFO">DICTIONARY example - URL: https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral</msg>
-<arg>DICTIONARY example - URL: ${support['url']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.280858" elapsed="0.000000"/>
-</kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-22T23:58:26.280858" level="INFO">DICTIONARY example - Text: Tired of writing endless social media content? Let Content Caddy generate it for you.</msg>
-<arg>DICTIONARY example - Text: ${support['text']}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-22T23:58:26.280858" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2025-09-22T23:58:26.145078" elapsed="0.135780"/>
-</test>
-<status status="PASS" start="2025-09-22T23:58:25.076045" elapsed="1.204813"/>
+<status status="PASS" start="2025-10-01T16:09:55.378176" elapsed="26.453252"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Test Api" id="s1" pass="2" fail="0" skip="0">Test Api</stat>
+<stat name="Testweb" id="s1" pass="1" fail="0" skip="0">Testweb</stat>
 </suite>
 </statistics>
 <errors>
