@@ -5,7 +5,6 @@ Library     RequestsLibrary
 *** Variables ***
 ${BASE_URL}     https://reqres.in/api
 ${x-api-key}    reqres-free-v1
-# ${GET_USERS}    https://reqres.in/api/users
 
 
 *** Keywords ***

@@ -1,71 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.12.5 on win32)" generated="2025-10-12T23:51:09.942023" rpa="false" schemaversion="5">
-<suite id="s1" name="demoDB" source="D:\Automation\Robot Framework\DemoRobotFramework\tests\database\demoDB.robot">
-<test id="s1-t1" name="Create Table In SQLite" line="23">
-<kw name="Connect To Database" owner="DatabaseLibrary">
-<msg time="2025-10-12T23:51:10.062768" level="INFO">Looking for configuration file: 'resources\db.cfg'</msg>
-<msg time="2025-10-12T23:51:10.069014" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2025-10-12T23:51:10.077817" level="INFO">Connect to DB using : sqlite3.connect(database='D:\Automation\Robot Framework\DemoRobotFramework/data/SQLite.db')</msg>
-<arg>sqlite3</arg>
-<arg>${DBPATH}</arg>
-<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
-Along with listed commonly used arguments (`db_name`, `db_host` etc.)
-you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="PASS" start="2025-10-12T23:51:10.062768" elapsed="0.016067"/>
+<robot generator="Robot 7.2.2 (Python 3.12.5 on win32)" generated="2025-10-16T23:38:17.691192" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Api" source="D:\Automation\Robot Framework\DemoRobotFramework\tests\api\test_api.robot">
+<test id="s1-t1" name="Test api delete user" line="110">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-10-16T23:38:18.650196" level="INFO">Creating Session using : alias=api, url=https://reqres.in/api, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-10-16T23:38:18.648905" elapsed="0.003510"/>
 </kw>
-<kw name="Catenate" owner="BuiltIn">
-<msg time="2025-10-12T23:51:10.078835" level="INFO">${query} = CREATE TABLE IF NOT EXISTS products ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, price REAL, stock INTEGER );</msg>
-<var>${query}</var>
-<arg>CREATE TABLE IF NOT EXISTS products (</arg>
-<arg>id INTEGER PRIMARY KEY AUTOINCREMENT,</arg>
-<arg>name TEXT NOT NULL,</arg>
-<arg>price REAL,</arg>
-<arg>stock INTEGER</arg>
-<arg>);</arg>
-<doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="PASS" start="2025-10-12T23:51:10.078835" elapsed="0.000000"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-10-16T23:38:18.653746" level="INFO">${headers} = {'x-api-key': 'reqres-free-v1'}</msg>
+<var>${headers}</var>
+<arg>x-api-key=${x-api-key}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-10-16T23:38:18.652415" elapsed="0.001331"/>
 </kw>
-<kw name="Execute Sql String" owner="DatabaseLibrary">
-<msg time="2025-10-12T23:51:10.078835" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;CREATE TABLE IF NOT EXISTS products ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, price REAL, stock INTEGER );&lt;/code&gt;</msg>
-<msg time="2025-10-12T23:51:10.087915" level="INFO">Commit the transaction</msg>
-<arg>${query}</arg>
-<doc>Executes the ``sql_string`` as a single SQL command.</doc>
-<status status="PASS" start="2025-10-12T23:51:10.078835" elapsed="0.009080"/>
+<kw name="DELETE On Session" owner="RequestsLibrary">
+<msg time="2025-10-16T23:38:19.330510" level="INFO">DELETE Request : url=https://reqres.in/api/api/users/1 
+ path_url=/api/api/users/1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'x-api-key': 'reqres-free-v1', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-10-16T23:38:19.330510" level="INFO">DELETE Response : url=https://reqres.in/api/api/users/1 
+ status=204, reason=No Content 
+ headers={'Date': 'Thu, 16 Oct 2025 16:38:19 GMT', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '96', 'Ratelimit-Reset': '244', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=6NjlMX72E%2BCcoqI7%2FCutfCqgRQ4tvR22JnFpwnJE%2FRc%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1760632699"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=6NjlMX72E%2BCcoqI7%2FCutfCqgRQ4tvR22JnFpwnJE%2FRc%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1760632699"', 'Server': 'cloudflare', 'Vary': 'Origin', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Powered-By': 'ReqRes.in - Deploy backends in 30 seconds', 'X-Reqres-Docs': 'https://reqres.in', 'X-Reqres-Message': 'This API is powered by ReqRes. Deploy your own backend in 30 seconds!', 'X-Reqres-Templates': 'https://app.reqres.in/templates', 'X-Reqres-Upgrade': 'https://app.reqres.in/upgrade', 'X-Request-Id': 'db339619-02b4-8358-1ae9-94adf770d595', 'X-Xss-Protection': '1; mode=block', 'cf-cache-status': 'DYNAMIC', 'CF-RAY': '98f8fc61abd6e2f7-HKG'} 
+ body=None 
+ </msg>
+<msg time="2025-10-16T23:38:19.330510" level="INFO">C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-16T23:38:19.331586" level="INFO">${resp} = &lt;Response [204]&gt;</msg>
+<var>${resp}</var>
+<arg>api</arg>
+<arg>/api/users/1</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2025-10-16T23:38:18.653746" elapsed="0.677840"/>
 </kw>
-<kw name="Query" owner="DatabaseLibrary">
-<msg time="2025-10-12T23:51:10.093796" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT name FROM sqlite_master WHERE type='table';&lt;/code&gt;</msg>
-<msg time="2025-10-12T23:51:10.093796" level="INFO">Commit the transaction</msg>
-<msg time="2025-10-12T23:51:10.094807" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 4 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="color:black; background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;name&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;demo&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;1&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;users&lt;/td&gt;&lt;/tr&gt;&lt;tr style="background-color: var(--secondary-color, #eee)"&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;2&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;sqlite_sequence&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;th scope="row" style="color:black; background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;3&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;products&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2025-10-12T23:51:10.094807" level="INFO">${tables} = [('demo',), ('users',), ('sqlite_sequence',), ('products',)]</msg>
-<var>${tables}</var>
-<arg>SELECT name FROM sqlite_master WHERE type='table';</arg>
-<doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
-The type of row values depends on the database module -
-usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2025-10-12T23:51:10.087915" elapsed="0.006892"/>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<msg time="2025-10-16T23:38:19.332593" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${resp.status_code}</arg>
+<arg>204</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="PASS" start="2025-10-16T23:38:19.331586" elapsed="0.001007"/>
+</kw>
+<kw name="Should Be Empty" owner="BuiltIn">
+<msg time="2025-10-16T23:38:19.333753" level="INFO">Length is 0.</msg>
+<arg>${resp.content}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<status status="PASS" start="2025-10-16T23:38:19.333753" elapsed="0.000000"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
-<arg>\n✅ Các bảng hiện có: ${tables}</arg>
+<arg>User 1 deleted successfully</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-10-12T23:51:10.096317" elapsed="0.000000"/>
+<status status="PASS" start="2025-10-16T23:38:19.334755" elapsed="0.000000"/>
 </kw>
-<kw name="Disconnect From Database" owner="DatabaseLibrary">
-<doc>Disconnects from the database.</doc>
-<status status="PASS" start="2025-10-12T23:51:10.096317" elapsed="0.000000"/>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2025-10-16T23:38:19.897922" level="INFO">GET Request : url=https://reqres.in/api/api/users/1 
+ path_url=/api/api/users/1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-10-16T23:38:19.898942" level="INFO">GET Response : url=https://reqres.in/api/api/users/1 
+ status=401, reason=Unauthorized 
+ headers={'Date': 'Thu, 16 Oct 2025 16:38:20 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-api-key', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Origin': 'http://localhost:5173', 'Etag': 'W/"1b-FQ1mIOMgD7jlZN53VsiSdXzsYTY"', 'Nel': '{"report_to":"heroku-nel","response_headers":["Via"],"max_age":3600,"success_fraction":0.01,"failure_fraction":0.1}', 'Ratelimit-Limit': '100', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Remaining': '95', 'Ratelimit-Reset': '243', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Report-To': '{"group":"heroku-nel","endpoints":[{"url":"https://nel.heroku.com/reports?s=9iWfmouKY2Ntx48oqN%2FucESHmlWKLJrKDq%2BqLbMh2d8%3D\\u0026sid=c4c9725f-1ab0-44d8-820f-430df2718e11\\u0026ts=1760632700"}],"max_age":3600}', 'Reporting-Endpoints': 'heroku-nel="https://nel.heroku.com/reports?s=9iWfmouKY2Ntx48oqN%2FucESHmlWKLJrKDq%2BqLbMh2d8%3D&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;ts=1760632700"', 'Server': 'cloudflare', 'Vary': 'Origin, accept-encoding', 'Via': '1.1 heroku-router', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'DENY', 'X-Request-Id': '9d239cf8-c55a-ed0a-b608-dc77eeb8e471', 'X-Xss-Protection': '1; mode=block', 'cf-cache-status': 'BYPASS', 'CF-RAY': '98f8fc654cffe2f7-HKG'} 
+ body={"error":"Missing API key"} 
+ </msg>
+<msg time="2025-10-16T23:38:19.898942" level="INFO">C:\Users\Admin\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-10-16T23:38:19.899948" level="FAIL">HTTPError: 401 Client Error: Unauthorized for url: https://reqres.in/api/api/users/1</msg>
+<var>${getResp}</var>
+<arg>api</arg>
+<arg>/api/users/1</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-10-16T23:38:19.334755" elapsed="0.570558">HTTPError: 401 Client Error: Unauthorized for url: https://reqres.in/api/api/users/1</status>
 </kw>
-<doc>Tạo bảng mới trong file SQLite local</doc>
-<status status="PASS" start="2025-10-12T23:51:10.062768" elapsed="0.033549"/>
+<kw name="Should Be Equal As Numbers" owner="BuiltIn">
+<arg>${getResp.status_code}</arg>
+<arg>404</arg>
+<doc>Fails if objects are unequal after converting them to real numbers.</doc>
+<status status="NOT RUN" start="2025-10-16T23:38:19.906313" elapsed="0.000000"/>
+</kw>
+<doc>Kiểm thử xóa user bằng DELETE method</doc>
+<status status="FAIL" start="2025-10-16T23:38:18.647610" elapsed="1.259702">HTTPError: 401 Client Error: Unauthorized for url: https://reqres.in/api/api/users/1</status>
 </test>
-<status status="PASS" start="2025-10-12T23:51:09.970603" elapsed="0.125714"/>
+<status status="FAIL" start="2025-10-16T23:38:17.725470" elapsed="2.183189"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="demoDB" id="s1" pass="1" fail="0" skip="0">demoDB</stat>
+<stat name="Test Api" id="s1" pass="0" fail="1" skip="0">Test Api</stat>
 </suite>
 </statistics>
 <errors>
